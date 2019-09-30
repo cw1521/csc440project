@@ -21,10 +21,13 @@ import * as express from 'express';
 import {join} from 'path';
 import * as mongoose from 'mongoose';
 import bodyParser from "body-parser";
+import { ODRoute } from "./routes/ODRoutes";
+
 
 // Express server
 const app = express();
 
+const odRoute : ODRoute = new ODRoute();
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 
@@ -54,7 +57,7 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
-
+odRoute.odRoute(app);
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
