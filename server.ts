@@ -42,9 +42,6 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
-mongoose.connect(process.env.mongo, { useNewUrlParser: true })
-  .then(() =>  console.log('connection successful'))
-  .catch((err) => console.error(err));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -57,12 +54,25 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+
+
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
+
+mongoose.connect(process.env.MONGODB_URI, { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true 
+})
+  .then(() =>  console.log('connection successful'))
+  .catch((err) => console.error(err));
+
+
+
 // Start up the Node server
 app.listen(PORT, () => {
   console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
+
