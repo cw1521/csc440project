@@ -21,7 +21,7 @@ import * as express from 'express';
 import {join} from 'path';
 import * as mongoose from 'mongoose';
 import bodyParser from "body-parser";
-import { ODRoute } from "./routes/ODRoutes";
+import { ODRoute } from "./api/routes/ODRoutes";
 
 
 // Express server
