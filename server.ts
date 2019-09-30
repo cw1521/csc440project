@@ -57,6 +57,9 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+
+// ADD Routes
+
 odRoute.odRoute(app);
 
 // All regular routes use the Universal engine
@@ -64,7 +67,7 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
-
+// Connect to mongodb server
 mongoose.connect(process.env.MONGODB_URI, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
