@@ -19,6 +19,8 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import {join} from 'path';
+import * as mongoose from 'mongoose';
+import bodyParser from "body-parser";
 
 // Express server
 const app = express();
@@ -39,6 +41,14 @@ app.engine('html', ngExpressEngine({
 
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
+
+mongoose.connect(process.env.mongo, { useNewUrlParser: true })
+  .then(() =>  console.log('connection successful'))
+  .catch((err) => console.error(err));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
