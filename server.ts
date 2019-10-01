@@ -20,11 +20,18 @@ import 'zone.js/dist/zone-node';
 import * as express from 'express';
 import {join} from 'path';
 import * as mongoose from 'mongoose';
-import bodyParser from "body-parser";
+import * as bodyParser from "body-parser";
 import { ODRoute } from "./api/routes/ODRoutes";
+import * as helmet from "helmet";
 
 import DatabaseConfig from './api/config';
 
+import * as cors from 'cors';
+
+const corsOptions = {
+  origin: "https://database-editor.herokuapp.com",
+  credentials: true
+};
 
 // Express server
 const app = express();
@@ -47,10 +54,23 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
+app.use(helmet());
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "database-editor/.herokuapp.com");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
+  if ("OPTIONS" === req.method) { 
+    return res.send(200);
+  }
+  next();
+});
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
@@ -83,4 +103,5 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.listen(PORT, () => {
   console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
+
 

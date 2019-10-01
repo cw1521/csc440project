@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccodComponent } from './accod/accod.component';
 import { CoreModule } from './core/core.module'
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -31,7 +31,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     MaterialModule,
     CoreModule,
     HttpClientModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

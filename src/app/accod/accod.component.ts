@@ -9,13 +9,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./accod.component.scss']
 })
 export class AccodComponent implements OnInit {
-  accodRecords: Observable<Accod[]>;
+  accodRecords;
 
   constructor(private accodService: AccodService) { }
 
   ngOnInit() {
-    this.accodService.getAccods().subscribe(res => {
-      ;
+    this.accodService.getAccods().subscribe((records: Accod[]) => {
+      console.log(records);
+      this.accodRecords = records;
     });
   }
 
