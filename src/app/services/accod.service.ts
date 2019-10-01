@@ -10,7 +10,7 @@ export class AccodService {
 
   constructor(private http: HttpClient) { }
 
-  getAccods(): Observable<Accod[]>{
-    return this.http.get<Accod[]>("api/ods");
+  getAccods(): Observable<Accod> {
+    return this.http.get<Accod>("api/ods");
   }
 }
