@@ -1,7 +1,7 @@
 <div fxFlexLayout="column"
 fxFlexAlign="center center">
     <div fxFlex="65" class="accod-container">
-        <div *ngIf="accodRecords | async">
+        <div *ngIf="accodRecords">
             <br>
             <div *ngFor="let record of accodRecords">
                 <span>{{ record.COD }}<br></span>
