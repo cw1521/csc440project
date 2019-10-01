@@ -15,7 +15,7 @@ export class AccodComponent implements OnInit {
   ngOnInit() {
     this.accodService.getAccods().then(data => {
       this.accodRecords = data;
-    });
+    }, err => console.error(err));
   }
 
 }
