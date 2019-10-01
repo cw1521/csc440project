@@ -3,7 +3,7 @@ fxFlexAlign="center center">
     <div fxFlex="65" class="accod-container">
         <div *ngIf="accodRecords | async">
             <br>
-            <div *ngFor="let record of accodRecords | async">
+            <div *ngFor="let record of accodRecords">
                 <span>{{ record.COD }}<br></span>
             </div>
         </div>
