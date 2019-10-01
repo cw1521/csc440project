@@ -28,5 +28,9 @@ $database-editor-theme: mat-light-theme($database-editor-primary, $database-edit
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    width: 100%; 
+    padding: 0vh 0vh 0vh 0vh;
+    background-color: #e0e0e0;
+}
+body { margin: 0; }

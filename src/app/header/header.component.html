@@ -3,6 +3,13 @@
 fxLayoutAlign="start center"
 class="header">
     <div fxFlex="5">
-        <button mat-button color="accent-light">Menu</button>
+        <button mat-button [matMenuTriggerFor]="menuToggle">
+            <span class="fas fa-bars icon"></span>
+        </button>
+        <mat-menu #menuToggle="matMenu">
+            <button mat-menu-item routerLink="/home" routerLinkActive="active">Home</button>
+            <button mat-menu-item routerLink="/accod">Accidental Overdoses</button>
+            <button mat-menu-item>TBA</button>
+        </mat-menu>
     </div>
 </div>

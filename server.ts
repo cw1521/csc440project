@@ -23,6 +23,8 @@ import * as mongoose from 'mongoose';
 import bodyParser from "body-parser";
 import { ODRoute } from "./api/routes/ODRoutes";
 
+import DatabaseConfig from './api/config';
+
 
 // Express server
 const app = express();
