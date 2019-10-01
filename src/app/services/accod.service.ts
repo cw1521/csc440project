@@ -9,7 +9,11 @@ export class AccodService {
 
   constructor(private http: HttpClient) { }
 
-  getAccods(){
-    return this.http.get<Accod[]>("api/ods");
+  getAccods(): Promise<Accod[]>{
+    this.http.get<Accod[]>("api/ods").toPromise().then(
+      res => {
+        return res;
+      });
+    return ;
   }
 }
