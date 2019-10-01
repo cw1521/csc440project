@@ -13,8 +13,8 @@ export class AccodComponent implements OnInit {
   constructor(private accodService: AccodService) { }
 
   ngOnInit() {
-    this.accodService.getAccods().then(accods => {
-      this.accodRecords = accods;
+    this.accodService.getAccods().subscribe(data => {
+      this.accodRecords = data;
     });
   }
 
