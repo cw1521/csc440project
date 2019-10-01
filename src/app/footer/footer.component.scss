@@ -1,8 +1,15 @@
 .footer {
-    width: 100vh;
-    height: 7vh;
+    width:100%;
+    height: 10vh;
     z-index: 5;
     padding: 0vh 0vh 0vh 0vh;
-    color: #000000;
-    position: 0, 0, 0, 0;
+    bottom: 0;
+    position: fixed;
+    color: floralwhite;
+    background-color: #212121;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 1.7vh;
 }

@@ -4,14 +4,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from './material.module'
+
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MatMenuModule, MatButtonModule } from '@angular/material/';
 import { AccodComponent } from './accod/accod.component';
 
 @NgModule({
   declarations: [
+  
     AppComponent,
     HomeComponent,
     HeaderComponent,
@@ -23,8 +26,7 @@ import { AccodComponent } from './accod/accod.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatMenuModule,
-    MatButtonModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
