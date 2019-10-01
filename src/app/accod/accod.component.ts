@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Accod } from '../shared/Accod';
+import { AccodService } from '../services/accod.service';
 
 @Component({
   selector: 'app-accod',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accod.component.scss']
 })
 export class AccodComponent implements OnInit {
+  accodRecords: Accod[];
 
-  constructor() { }
+  constructor(private accodService: AccodService) { }
 
   ngOnInit() {
+    this.accodService.getAccods().then(accods => {
+      this.accodRecords = accods;
+    });
   }
 
 }

@@ -11,10 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccodComponent } from './accod/accod.component';
+import { CoreModule } from './core/core.module'
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 
 @NgModule({
-  declarations: [
-  
+  declarations: [  
     AppComponent,
     HomeComponent,
     HeaderComponent,
@@ -26,7 +28,10 @@ import { AccodComponent } from './accod/accod.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    CoreModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
