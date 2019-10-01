@@ -70,7 +70,7 @@ app.get('*', (req, res) => {
 });
 
 // Connect to mongodb server
-mongoose.connect(DatabaseConfig.MONGODB_URI, { 
+mongoose.connect(process.env.MONGODB_URI, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
 })
