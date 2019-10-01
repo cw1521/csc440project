@@ -24,7 +24,6 @@ import * as bodyParser from "body-parser";
 import { ODRoute } from "./api/routes/ODRoutes";
 import * as helmet from "helmet";
 
-import DatabaseConfig from './api/config';
 
 import * as cors from 'cors';
 
