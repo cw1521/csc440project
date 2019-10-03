@@ -34,4 +34,8 @@ export class AccodComponent implements OnInit {
     ];
   }
 
+  onSelectionChange(event) {
+    console.log(event.source.selected._element.nativeElement);
+  }
+
 }
