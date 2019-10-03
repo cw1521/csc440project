@@ -1,3 +1,3 @@
-const baseURL = "https://database-editor.herokuapp.com/"
+const baseURL = "https://localhost:4200"
 
 export default baseURL;

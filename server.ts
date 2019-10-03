@@ -23,12 +23,13 @@ import * as mongoose from 'mongoose';
 import * as bodyParser from "body-parser";
 import { ODRoute } from "./api/routes/ODRoutes";
 import * as helmet from "helmet";
+import DatabaseConfig from './api/config';
 
 
 import * as cors from 'cors';
 
 const corsOptions = {
-  origin: "https://database-editor.herokuapp.com",
+  origin: "*",
   credentials: true
 };
 
@@ -62,9 +63,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "database-editor/.herokuapp.com");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
+  res.header("Access-Control-Allow-Headers", "origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
   if ("OPTIONS" === req.method) { 
     return res.send(200);
   }
@@ -89,7 +90,7 @@ app.get('*', (req, res) => {
 });
 
 // Connect to mongodb server
-mongoose.connect(process.env.MONGODB_URI, { 
+mongoose.connect(DatabaseConfig.PROD_DB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
 })
