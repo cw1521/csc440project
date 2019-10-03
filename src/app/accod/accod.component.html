@@ -20,7 +20,7 @@ fxFlexAlign="center center">
         <div>
             <mat-form-field>
                 <mat-label>Select a Category</mat-label>
-                <mat-select [(value)]="selected">
+                <mat-select [(value)]="categorySelected">
                     <div *ngFor="let category of searchCategory">
                         <mat-option value="{{category}}">{{category}}</mat-option>
                     </div>

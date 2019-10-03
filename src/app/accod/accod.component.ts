@@ -11,13 +11,14 @@ import { Observable } from 'rxjs';
 export class AccodComponent implements OnInit {
   accodRecords: Accod[];
   searchCategory: String[];
-  recordSelected: Accod;
+  categorySelected: String;
 
 
   constructor(private accodService: AccodService) { }
 
   ngOnInit() {
-    this.setSearchCategories();
+    this.setSearchCategories();    
+    this.categorySelected = this.searchCategory[0];
     this.accodService.getAccods().subscribe((records: Accod[]) => {
       console.log(records);
       this.accodRecords = records;
