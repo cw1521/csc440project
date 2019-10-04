@@ -85,7 +85,6 @@ app.get('*.*', express.static(DIST_FOLDER, {
 
 
 // ADD Routes
-
 odRoute.odRoute(app);
 
 // All regular routes use the Universal engine
