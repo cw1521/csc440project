@@ -36,9 +36,6 @@ const corsOptions = {
   credentials: true
 };
 
-enableProdMode();
-
-
 // Express server
 const app = express();
 
@@ -96,7 +93,7 @@ app.get('*', (req, res) => {
 });
 
 // Connect to mongodb server
-mongoose.connect(DatabaseConfig.TEST_DB, { 
+mongoose.connect(DatabaseConfig.PROD_DB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
 })

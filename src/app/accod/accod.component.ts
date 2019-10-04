@@ -15,6 +15,8 @@ export class AccodComponent implements OnInit {
   accodRecords: Accod[];
   searchCategory: String[];
   categorySelected: String;
+
+  
   
 
   constructor(private accodService: AccodService) { }
