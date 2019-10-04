@@ -68,7 +68,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://database-editor.herokuapp.com");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "origin,X-Requested-With,Content-Type,Accept,content-type,application/json, text-html");
+  res.header("Access-Control-Allow-Headers", "origin,X-Requested-With,Content-Type,Accept,content-type,application/json, text/html");
   if ("OPTIONS" === req.method) { 
     return res.send(200);
   }
