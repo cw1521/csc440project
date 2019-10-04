@@ -79,7 +79,7 @@ app.use(function(req, res, next) {
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 // Serve static files from /browser
-app.get('/api/**', express.static(DIST_FOLDER, {
+app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
