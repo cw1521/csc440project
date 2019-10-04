@@ -32,7 +32,7 @@ import * as cors from 'cors';
 
 
 const corsOptions = {
-  origin: "https://database-editor.herokuapp.com",
+  origin: "*",
   credentials: true
 };
 
