@@ -24,7 +24,7 @@ class="accod-container">
                 <mat-select [(value)]="categorySelected"
                 (selectionChange)="onSelectionChange($event)">
                     <div *ngFor="let category of searchCategory">
-                        <mat-option value="{{category}}">{{ category }}</mat-option>
+                        <mat-option value="{{category}}"><span class="option">{{ category }}</span></mat-option>
                     </div>
                 </mat-select>
             </mat-form-field>

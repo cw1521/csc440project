@@ -24,14 +24,20 @@ import * as bodyParser from "body-parser";
 import { ODRoute } from "./api/routes/ODRoutes";
 import * as helmet from "helmet";
 import DatabaseConfig from './api/config';
+import { enableProdMode } from '@angular/core';
 
 
 import * as cors from 'cors';
+
+
 
 const corsOptions = {
   origin: "*",
   credentials: true
 };
+
+enableProdMode();
+
 
 // Express server
 const app = express();
@@ -75,7 +81,7 @@ app.use(function(req, res, next) {
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 // Serve static files from /browser
-app.get('*.*', express.static(DIST_FOLDER, {
+app.get('/api/**', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
@@ -90,7 +96,7 @@ app.get('*', (req, res) => {
 });
 
 // Connect to mongodb server
-mongoose.connect(DatabaseConfig.PROD_DB, { 
+mongoose.connect(DatabaseConfig.TEST_DB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
 })

@@ -10,6 +10,6 @@ export class AccodService {
   constructor(private http: HttpClient) { }
 
   getAccods() {
-    return this.http.get(`api/ods`);
+    return this.http.get("http://localhost:4200/api/ods");
   }
 }
