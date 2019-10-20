@@ -14,11 +14,14 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "es2018",
       "dom"
     ]
   },
+  
+  "include": ["src"],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

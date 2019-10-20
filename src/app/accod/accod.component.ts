@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Accod } from '../shared/Accod';
 import { AccodService } from '../services/accod.service';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 var ods = require('../../assets/drug-od');
 
@@ -15,6 +16,8 @@ export class AccodComponent implements OnInit {
   accodRecords: Accod[];
   searchCategory: String[];
   categorySelected: String;
+  searchString: String;
+  isLoading: boolean;
 
   
   
@@ -24,13 +27,12 @@ export class AccodComponent implements OnInit {
   ngOnInit() {
     this.setSearchCategories();    
     this.categorySelected = this.searchCategory[0];
-
+    this.accodRecords = null;
     this.accodService.getAccods().subscribe((records: Accod[]) => {
-      console.log(records);
+      //console.log(records);
       this.accodRecords = records;
     });
 
-    //this.accodRecords = JSON.parse(ods);
 
   }
 
@@ -44,8 +46,13 @@ export class AccodComponent implements OnInit {
     ];
   }
 
-  onSelectionChange(event) {
-    console.log(event.source.selected.value);
+  onSelectionChange(value: string) {
+    this.categorySelected = value;
+  }
+
+  onSearch(value: string) {
+    this.searchString = value;
+    console.log(`Search parameter: ${value}\nCategory: ${this.categorySelected}\n`);
   }
 
 }

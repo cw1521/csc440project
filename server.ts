@@ -19,8 +19,9 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import {join} from 'path';
-import * as mongoose from 'mongoose';
+//import * as mongoose from 'mongoose';
 import * as bodyParser from "body-parser";
+
 import { ODRoute } from "./api/routes/ODRoutes";
 import * as helmet from "helmet";
 import DatabaseConfig from './api/config';
@@ -29,7 +30,7 @@ import { enableProdMode } from '@angular/core';
 
 import * as cors from 'cors';
 
-
+var mongoose = require("./node_modules/mongoose");
 
 const corsOptions = {
   origin: "*",
@@ -96,11 +97,10 @@ app.get('*', (req, res) => {
 mongoose.connect(DatabaseConfig.PROD_DB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
-})
-  .then(() =>  console.log('connection successful'))
-  .catch((err) => console.error(err));
+});
 
-
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB Connection error"));
 
 // Start up the Node server
 app.listen(PORT, () => {

@@ -1,8 +1,8 @@
 <div fxFlexLayout="column"
 fxFlexAlign="center center"
 class="accod-container">
-    <div fxFlex="50"
-    fxFlexOffset="5">
+    <div fxFlex="60"
+    fxFlexOffset="10">
         <div *ngIf="accodRecords">
             <br>
             <div *ngFor="let record of accodRecords">
@@ -14,20 +14,36 @@ class="accod-container">
                 <br>
             </div>
         </div>
+        <div *ngIf="!accodRecords">
+            <mat-spinner></mat-spinner>
+
+        </div>
     </div>
     <div fxFlex="30"
     fxFlexOffset="5"
     class="search-bar">
         <div>
-            <mat-form-field>
+            <mat-form-field class="search">
+                <mat-label>Search</mat-label>
+                <input #search matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="category">
                 <mat-label>Select a Category</mat-label>
-                <mat-select [(value)]="categorySelected"
-                (selectionChange)="onSelectionChange($event)">
+                <mat-select #category
+                [(value)]="categorySelected"
+                (selectionChange)="onSelectionChange(category.value)">
                     <div *ngFor="let category of searchCategory">
                         <mat-option value="{{category}}"><span class="option">{{ category }}</span></mat-option>
                     </div>
                 </mat-select>
             </mat-form-field>
+        </div>
+        <div>
+            <button mat-button
+            class="search-button"
+            (click)="onSearch(search.value)">Search</button>
         </div>
     </div>
 </div>
