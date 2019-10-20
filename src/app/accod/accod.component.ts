@@ -28,9 +28,11 @@ export class AccodComponent implements OnInit {
     this.setSearchCategories();    
     this.categorySelected = this.searchCategory[0];
     this.accodRecords = null;
+    this.isLoading = true;
     this.accodService.getAccods().subscribe((records: Accod[]) => {
       //console.log(records);
       this.accodRecords = records;
+      this.isLoading = false;
     });
 
 

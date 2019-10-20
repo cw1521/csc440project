@@ -16,7 +16,6 @@ class="accod-container">
         </div>
         <div *ngIf="!accodRecords">
             <mat-spinner></mat-spinner>
-
         </div>
     </div>
     <div fxFlex="30"
@@ -41,8 +40,7 @@ class="accod-container">
             </mat-form-field>
         </div>
         <div>
-            <button mat-button
-            class="search-button"
+            <button mat-button class="search-button"
             (click)="onSearch(search.value)">Search</button>
         </div>
     </div>
