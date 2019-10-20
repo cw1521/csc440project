@@ -29,12 +29,12 @@ export class AccodComponent implements OnInit {
     this.categorySelected = this.searchCategory[0];
     this.accodRecords = null;
     this.isDisabled = true;
-    
-    // this.accodService.getAccods().subscribe((records: Accod[]) => {
-    //   //console.log(records);
-    //   this.accodRecords = records;
-    //   this.isDisabled = true;
-    // });
+
+    this.accodService.getAccods().subscribe((records: Accod[]) => {
+      //console.log(records);
+      this.accodRecords = records;
+      this.isDisabled = false;
+    });
   }
 
 
