@@ -1,6 +1,7 @@
 <div fxFlexLayout="column"
 fxFlexAlign="center center"
-class="accod-container">
+class="container">
+
     <div fxFlex="60"
     fxFlexOffset="10">
         <div *ngIf="searchResults">
@@ -16,6 +17,8 @@ class="accod-container">
             </div>
         </div>
     </div>
+
+
     <div fxFlex="30"
     fxFlexOffset="5"
     class="search-bar">
@@ -43,4 +46,6 @@ class="accod-container">
             (click)="onSearch(search.value)">Search</button>
         </div>
     </div>
+
+
 </div>

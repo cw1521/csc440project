@@ -1,20 +1,31 @@
-
 <div fxFlexLayout="row"
 fxLayoutAlign="start center"
 class="header">
+
+
+    <!-- Navigation Menu-->
     <div fxFlex="5">
         <button mat-button [matMenuTriggerFor]="menuToggle">
-            <span class="fas fa-bars icon"></span>
+            <span class="icon fas fa-bars"></span>
         </button>
         <mat-menu #menuToggle="matMenu">
-            <button class="menu" mat-menu-item routerLink="/home" routerLinkActive="active">Home</button>
-            <button class="menu" mat-menu-item routerLink="/accod">Accidental Overdoses</button>
-            <button class="menu" mat-menu-item>TBA</button>
+            <button class="text-white" mat-menu-item routerLink="/home" routerLinkActive="active">Home</button>
+            <button class="text-white" mat-menu-item routerLink="/accod">Accidental Overdoses</button>
+            <button class="text-white" mat-menu-item>TBA</button>
         </mat-menu>
     </div>
 
-    <div fxFlex="95"
+    <!-- Title -->
+    <div fxFlex="85"
     class="title">
         <p>Informatics Database</p>
     </div>
+
+    <!-- Login Dialog-->
+    <div fxFlex="10">
+        <button mat-button><span class="icon fas fa-sign-in-alt text-white"></span>
+        </button>
+    </div>
+
+
 </div>
