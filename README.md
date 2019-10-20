@@ -1,27 +1,17 @@
-# DatabaseEditor
+# Database-Editor
+## Download mongoDB
+1. Go to https://www.mongodb.com/download-center/community and download the community server
+2. Open up a command prompt and `cd` to the database-editor folder
+3. Enter the command `mongoimport -d hi -c accod --jsonArray --file assets/csc440projectrecords.json`
+4. Keep the command prompt open.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
+## Install Node
+1. Go to https://nodejs.org/en/ and download the LTS version of node.
 
-## Development server
+## Install NPM packages
+1. `cd` to the database-editor folder
+2. Enter the command `npm install` .
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Run the test server
+1. Enter `npm run dev` in the command prompt to run the dev environment.
+2. Open a browser and go to http://localhost:4000 to view changes made to the website in real time.
