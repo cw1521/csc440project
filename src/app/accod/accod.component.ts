@@ -49,15 +49,14 @@ export class AccodComponent implements OnInit {
     ];
   }
 
-  onSelectionChange(value: string) {
+  onSelectionChange(value: String) {
     this.categorySelected = value;
   }
 
-  onSearch(value: string) {
+  onSearch(value: String) {
     this.searchString = value;
     this.searchResults = this.accodRecords.filter((accod : Accod) => {
-      console.log(`accod["${this.categorySelected}"]\n`);
-      return accod["${this.categorySelected}"] === value;
+      return accod[`${this.categorySelected}`] === value;
     })
     //console.log(`Search parameter: ${value}\nCategory: ${this.categorySelected}\n`);
   }
