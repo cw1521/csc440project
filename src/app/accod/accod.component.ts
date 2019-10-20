@@ -33,7 +33,6 @@ export class AccodComponent implements OnInit {
     this.searchResults = null;
 
     this.accodService.getAccods().subscribe((records: Accod[]) => {
-      //console.log(records);
       this.accodRecords = records;
       this.isDisabled = false;
     });
@@ -57,8 +56,7 @@ export class AccodComponent implements OnInit {
     this.searchString = value;
     this.searchResults = this.accodRecords.filter((accod : Accod) => {
       return accod[`${this.categorySelected}`] === value;
-    })
-    //console.log(`Search parameter: ${value}\nCategory: ${this.categorySelected}\n`);
+    });
   }
 
 }
