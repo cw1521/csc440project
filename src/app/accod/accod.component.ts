@@ -55,7 +55,7 @@ export class AccodComponent implements OnInit {
   onSearch(value: String) {
     this.searchString = value;
     this.searchResults = this.accodRecords.filter((accod : Accod) => {
-      console.log(`${accod[`${this.categorySelected}`]}\n`);
+      //console.log(`${accod[`${this.categorySelected}`]}\n`);
       if (accod[`${this.categorySelected}`])
         return accod[`${this.categorySelected}`].toLowerCase() === value.toLowerCase();
       else return false;
