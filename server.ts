@@ -94,7 +94,7 @@ app.get('*', (req, res) => {
 });
 
 // Connect to mongodb server
-mongoose.connect(DatabaseConfig.TEST_DB, { 
+mongoose.connect(DatabaseConfig.PROD_DB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
 });
