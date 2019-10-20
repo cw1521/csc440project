@@ -3,14 +3,15 @@ fxFlexAlign="center center"
 class="accod-container">
     <div fxFlex="60"
     fxFlexOffset="10">
-        <div *ngIf="accodRecords">
+        <div *ngIf="searchResults">
             <br>
-            <div *ngFor="let record of accodRecords">
+            <div *ngFor="let record of searchResults">
                 <span>Age: {{ record.Age }}<br></span>
                 <span>Sex: {{ record.Sex }}<br></span>
                 <span>Race: {{ record.Race }} <br></span>
                 <span>Cause of Death: {{ record.COD }}<br></span>
                 <span>Manner of Death: {{ record.MannerofDeath }}<br></span>
+                <span>Location: {{ record.Location }}<br></span>
                 <br>
             </div>
         </div>

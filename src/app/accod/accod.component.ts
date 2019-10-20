@@ -18,6 +18,7 @@ export class AccodComponent implements OnInit {
   categorySelected: String;
   searchString: String;
   isDisabled: boolean;
+  searchResults: Accod[];
 
   
   
@@ -53,6 +54,9 @@ export class AccodComponent implements OnInit {
 
   onSearch(value: string) {
     this.searchString = value;
+    this.searchResults = this.accodRecords.filter((accod : Accod) => {
+      return accod["${this.categorySelected}"] === value;
+    })
     console.log(`Search parameter: ${value}\nCategory: ${this.categorySelected}\n`);
   }
 
