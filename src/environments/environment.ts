@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiUrl: "http://localhost.com:4000",
+  MONGO_URI: "loc",
   production: false
 };
 
