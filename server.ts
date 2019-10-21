@@ -35,7 +35,7 @@ var mongoose = require("./node_modules/mongoose");
 var whitelist = ["http://database-editor.herokuapp.com"];
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://database-editor.herokuapp.com",
   credentials: true
 };
 
@@ -96,7 +96,7 @@ app.get('*', (req, res) => {
 });
 
 // Connect to mongodb server
-mongoose.connect(DatabaseConfig.TEST_DB, { 
+mongoose.connect(DatabaseConfig.PROD_DB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true 
 });
