@@ -60,7 +60,7 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
-app.use(helmet());
+//app.use(helmet());
 
 app.use(cors(corsOptions));
 
@@ -72,6 +72,12 @@ app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("X-Content-Type-Options", "nosniff");
+  res.header("X-XSS-Protection", "1; mode=block");
+  res.header("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  res.header("X-Frame-Options", "DENY");
+  res.header("Content-Security-Policy", "default-src 'self';");
+  res.header("X-Permitted-Cross-Domain-Policies", "none");
+  res.header("Referrer-Policy", "no-referrer");
   res.header("Access-Control-Allow-Headers", "origin,X-Requested-With,Content-Type,Accept,content-type,application/json,text/html");
   if ("OPTIONS" === req.method) { 
     return res.send(200);
