@@ -25,7 +25,6 @@ import * as bodyParser from "body-parser";
 import { ODRoute } from "./api/routes/ODRoutes";
 import * as helmet from "helmet";
 import DatabaseConfig from './api/config';
-import { enableProdMode } from '@angular/core';
 
 
 import * as cors from 'cors';
@@ -60,7 +59,7 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
-//app.use(helmet());
+app.use(helmet());
 
 app.use(cors(corsOptions));
 
