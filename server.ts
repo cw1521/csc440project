@@ -35,7 +35,7 @@ var mongoose = require("./node_modules/mongoose");
 var whitelist = ["http://database-editor.herokuapp.com"];
 
 const corsOptions = {
-  origin: "https://database-editor.herokuapp.com",
+  origin: "*",
   credentials: true
 };
 
