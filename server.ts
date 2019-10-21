@@ -35,13 +35,7 @@ var mongoose = require("./node_modules/mongoose");
 var whitelist = ["http://database-editor.herokuapp.com"];
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
+  origin: "https://database-editor.herokuapp.com",
   credentials: true
 };
 
@@ -75,7 +69,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
+  //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("X-Content-Type-Options", "nosniff");
   res.header("Access-Control-Allow-Headers", "origin,X-Requested-With,Content-Type,Accept,content-type,application/json,text/html");
