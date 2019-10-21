@@ -62,14 +62,14 @@ app.set('views', DIST_FOLDER);
 
 //app.use(helmet());
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(function(req, res, next) {
-  //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
+  res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("X-Content-Type-Options", "nosniff");
   res.header("X-XSS-Protection", "1; mode=block");
