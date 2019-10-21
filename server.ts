@@ -75,7 +75,7 @@ app.use(function(req, res, next) {
   res.header("X-XSS-Protection", "1; mode=block");
   res.header("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
   res.header("X-Frame-Options", "DENY");
-  res.header("Content-Security-Policy", "default-src 'self';");
+  res.header("Content-Security-Policy", "default-src 'self' https://fonts.googleapis.com/* https://use.fontawesome.com/releases/v5.0.13/css/all.css");
   res.header("X-Permitted-Cross-Domain-Policies", "none");
   res.header("Referrer-Policy", "no-referrer");
   res.header("Access-Control-Allow-Headers", "origin,X-Requested-With,Content-Type,Accept,content-type,application/json,text/html");
