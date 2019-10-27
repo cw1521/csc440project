@@ -29,9 +29,11 @@ import DatabaseConfig from './api/config';
 
 import * as cors from 'cors';
 
+import { oktaAuth } from './api/auth';
+
+
 var mongoose = require("./node_modules/mongoose");
 
-var whitelist = ["http://database-editor.herokuapp.com"];
 
 const corsOptions = {
   origin: "https://database-editor.herokuapp.com",
@@ -66,6 +68,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(oktaAuth);
 
 app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
@@ -83,6 +86,8 @@ app.use(function(req, res, next) {
   }
   next();
 });
+
+
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });

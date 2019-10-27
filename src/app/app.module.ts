@@ -14,6 +14,7 @@ import { AccodComponent } from './accod/accod.component';
 import { CoreModule } from './core/core.module'
 import { HttpClientModule} from '@angular/common/http';
 
+import { OktaAuthModule } from '@okta/okta-angular';
 
 
 @NgModule({
@@ -31,7 +32,12 @@ import { HttpClientModule} from '@angular/common/http';
     FlexLayoutModule,
     MaterialModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    OktaAuthModule.initAuth({
+      issuer: 'https://dev-731325.okta.com/oauth2/default',
+      redirectUri: 'http://localhost:4000/implicit/callback',
+      clientId: '0oa1odxb5obhuH9gl357'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

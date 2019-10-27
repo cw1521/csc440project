@@ -9,9 +9,11 @@ class="header">
             <span class="icon fas fa-bars"></span>
         </button>
         <mat-menu #menuToggle="matMenu">
-            <button class="text-white" mat-menu-item routerLink="/home" routerLinkActive="active">Home</button>
-            <button class="text-white" mat-menu-item routerLink="/accod">Accidental Overdoses</button>
-            <button class="text-white" mat-menu-item>TBA</button>
+            <button class="text-white" mat-menu-item *ngIf="isAuthenticated" routerLink="/home" routerLinkActive="active">Home</button>
+            <button class="text-white" mat-menu-item *ngIf="isAuthenticated" routerLink="/accod">Accidental Overdoses</button>
+            <button class="text-white" mat-menu-item *ngIf="isAuthenticated">TBA</button>
+            <button class="text-white" mat-menu-item *ngIf="!isAuthenticated" (click)="login()">Login</button>
+            <button class="text-white" mat-menu-item *ngIf="isAuthenticated" (click)="logout()">Logout</button>
         </mat-menu>
     </div>
 
@@ -21,11 +23,12 @@ class="header">
         <p>Informatics Database</p>
     </div>
 
-    <!-- Login Dialog-->
-    <div fxFlex="20">
+    <!-- Login Dialog -->
+
+    <!-- <div fxFlex="20">
         <button mat-button><span class="icon fas fa-sign-in-alt text-white"></span>
         </button>
-    </div>
+    </div> -->
 
 
 </div>

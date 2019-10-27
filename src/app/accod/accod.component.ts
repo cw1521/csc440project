@@ -32,10 +32,12 @@ export class AccodComponent implements OnInit {
     this.isDisabled = true;
     this.searchResults = null;
 
-    this.accodService.getAccods().subscribe((records: Accod[]) => {
-      this.accodRecords = records;
-      this.isDisabled = false;
-    });
+    this.load();
+  }
+
+  async load() {
+    this.accodRecords = await this.accodService.getAccods();
+    this.isDisabled = false;
   }
 
 
