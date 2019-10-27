@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   isAuthenticated: boolean;
 
   issuer = 'https://dev-731325.okta.com/oauth2/default';
-  redirectUri = `${window.location.origin}/logged_out`;
+  redirectUri = 'https://database-editor/herokuapp.com/logged_out';
 
 
   constructor(public oktaAuth: OktaAuthService) {
