@@ -37,11 +37,7 @@ export class HeaderComponent implements OnInit {
       const idToken = await this.oktaAuth.getIdToken();
 
       // Clear local session
-      await this.oktaAuth.logout('/');
-  
-      // Clear remote session
-      window.location.href = `${this.issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${this.redirectUri}`;
-      
+      await this.oktaAuth.logout('/');  
   }
 
 }
