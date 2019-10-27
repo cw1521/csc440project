@@ -6,8 +6,15 @@ import { OktaAuthService } from '@okta/okta-angular';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
+
+
 export class HeaderComponent implements OnInit {
   isAuthenticated: boolean;
+
+  issuer = 'https://dev-731325.okta.com/oauth2/default';
+  redirectUri = `${window.location.origin}/logged_out`;
+
 
   constructor(public oktaAuth: OktaAuthService) {
     this.isAuthenticated = false;
@@ -25,8 +32,16 @@ export class HeaderComponent implements OnInit {
     this.oktaAuth.loginRedirect();
   }
 
-  logout() {
-    this.oktaAuth.logout('/');
+  async logout() {
+      // Read idToken before local session is cleared
+      const idToken = await this.oktaAuth.getIdToken();
+
+      // Clear local session
+      await this.oktaAuth.logout('/');
+  
+      // Clear remote session
+      window.location.href = `${this.issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${this.redirectUri}`;
+      
   }
 
 }
