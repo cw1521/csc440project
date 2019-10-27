@@ -35,7 +35,7 @@ import { OktaAuthModule } from '@okta/okta-angular';
     HttpClientModule,
     OktaAuthModule.initAuth({
       issuer: 'https://dev-731325.okta.com/oauth2/default',
-      redirectUri: 'http://localhost:4000/implicit/callback',
+      redirectUri: 'https://database-editor.herokuapp.com/implicit/callback',
       clientId: '0oa1odxb5obhuH9gl357'
     })
   ],
