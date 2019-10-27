@@ -33,10 +33,6 @@ export class HeaderComponent implements OnInit {
   }
 
   async logout() {
-      // Read idToken before local session is cleared
-      const idToken = await this.oktaAuth.getIdToken();
-
-      // Clear local session
       await this.oktaAuth.logout('/');  
   }
 
