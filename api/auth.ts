@@ -18,7 +18,6 @@ export async function oktaAuth(req:Request, res:Response, next:NextFunction) {
       uid: jwt.claims.uid,
       email: jwt.claims.sub
     };
-    console.log(jwt.claims);
     next();
   }
   catch (err) {
