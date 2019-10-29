@@ -70,6 +70,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(oktaAuth);
 
+
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`);
+    else
+      next();
+  });
+}
+
 app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
