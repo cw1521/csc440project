@@ -65,8 +65,8 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModule
 
 app.use((req, res, next) => {
   if (req.header('X-Forwarded-Proto') !== 'https') {
-    res.redirect(`https://${req.header('host')}${req.url}`);
-    console.log(`Header: ${req.header}\n`);
+    res.redirect("https://database-editor.herokuapp.com/");
+    //console.log(`Header: ${req.header}\n`);
   }
   else
     next();
