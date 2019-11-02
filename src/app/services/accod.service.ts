@@ -13,7 +13,7 @@ export class AccodService {
   private async request(method: string, url: string, data?: any) {
     const token = await this.oktaAuth.getAccessToken();
 
-    console.log('request ' + JSON.stringify(data));
+    //console.log('request ' + JSON.stringify(data));
     const result = this.http.request(method, url, {
       body: data,
       responseType: 'json',
