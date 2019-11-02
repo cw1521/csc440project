@@ -4,7 +4,7 @@
 
 export const environment = {
   apiUrl: "http://localhost.com:4000",
-  MONGO_URI: "loc",
+  MONGO_URI: "localhost:4200/",
   production: false
 };
 

@@ -63,14 +63,14 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModule
 //   });
 // }
 
-app.use((req, res, next) => {
-  if (req.header('X-Forwarded-Proto') !== 'https') {
-    res.redirect(`https://${req.header('host')}${req.url}`);
-    console.log(`Header: ${req.header}\n`);
-  }
-  else
-    next();
-});
+// app.use((req, res, next) => {
+//   if (req.header('X-Forwarded-Proto') !== 'https') {
+//     res.redirect(`https://${req.header('host')}${req.url}`);
+//     console.log(`Header: ${req.header}\n`);
+//   }
+//   else
+//     next();
+// });
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -97,6 +97,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
+  console.log(req.header)
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("X-Content-Type-Options", "nosniff");
   res.header("X-XSS-Protection", "1; mode=block");
