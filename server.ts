@@ -97,7 +97,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
-  console.log(req.header)
+  console.log(`https://${req.header('host')}${req.url}`)
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("X-Content-Type-Options", "nosniff");
   res.header("X-XSS-Protection", "1; mode=block");
