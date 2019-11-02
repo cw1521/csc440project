@@ -31,8 +31,9 @@ import * as cors from 'cors';
 
 import { oktaAuth } from './api/auth';
 
+import * as mongoose from 'mongoose';
 
-var mongoose = require("./node_modules/mongoose");
+//var mongoose = require("./node_modules/mongoose");
 
 
 const corsOptions = {
@@ -53,7 +54,7 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModule
 
 if(process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https') {
+    if (req.header('X-Forwarded-Proto') !== 'https') {
       res.redirect(`https://${req.header('host')}${req.url}`);
       console.log(`Header: ${req.header}\n`);
     }
