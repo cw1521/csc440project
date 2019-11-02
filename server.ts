@@ -52,17 +52,25 @@ const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap} = require('./dist/server/main');
 
 
-if(process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    if (req.header('X-Forwarded-Proto') !== 'https') {
-      res.redirect(`https://${req.header('host')}${req.url}`);
-      console.log(`Header: ${req.header}\n`);
-    }
-    else
-      next();
-  });
-}
+// if(process.env.NODE_ENV === 'production') {
+//   app.use((req, res, next) => {
+//     if (req.header('X-Forwarded-Proto') !== 'https') {
+//       res.redirect(`https://${req.header('host')}${req.url}`);
+//       //console.log(`Header: ${req.header}\n`);
+//     }
+//     else
+//       next();
+//   });
+// }
 
+app.use((req, res, next) => {
+  if (req.header('X-Forwarded-Proto') !== 'https') {
+    res.redirect(`https://${req.header('host')}${req.url}`);
+    console.log(`Header: ${req.header}\n`);
+  }
+  else
+    next();
+});
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
