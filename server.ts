@@ -50,6 +50,19 @@ const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap} = require('./dist/server/main');
 
+
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      res.redirect(`https://${req.header('host')}${req.url}`);
+      console.log(`Header: ${req.header}\n`);
+    }
+    else
+      next();
+  });
+}
+
+
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
@@ -71,14 +84,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(oktaAuth);
 
 
-if(process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https')
-      res.redirect(`https://${req.header('host')}${req.url}`);
-    else
-      next();
-  });
-}
+
 
 app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://database-editor.herokuapp.com");
