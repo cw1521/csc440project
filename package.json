@@ -66,11 +66,15 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "nodemon": "^1.19.4",
+    "npm-force-resolutions": "0.0.3",
     "protractor": "~5.4.0",
     "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
     "webpack-cli": "^3.1.0"
+  },
+  "resolutions": {
+    "https-proxy-agent": "^2.2.3"
   }
 }
