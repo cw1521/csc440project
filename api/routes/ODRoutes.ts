@@ -7,9 +7,8 @@ export class ODRoute {
 
       app.route('/api/ods', oktaAuth).get(ODModel.getAll);
       app.route('api/ods', oktaAuth).put(this.blockRoute);
-      app.route('api/ods', oktaAuth).delete(this.blockRoute);
-      app.route('api/ods', oktaAuth).create(this.blockRoute);
-      
+      app.route('api/ods', oktaAuth).post(this.blockRoute);
+      app.route('api/ods', oktaAuth).delete(this.blockRoute);      
     }
 
     private blockRoute(req: Request, res: Response, next: NextFunction) {
