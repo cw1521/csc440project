@@ -70,7 +70,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(oktaAuth);
+//app.use(oktaAuth);
 
 
 // if(process.env.NODE_ENV === 'production') {
@@ -121,6 +121,9 @@ app.use(function(req, res, next) {
 app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
+
+
+app.get('/api/*', oktaAuth);
 
 
 // ADD Routes
