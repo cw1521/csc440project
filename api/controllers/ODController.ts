@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import ODModel  from '../models/ODModel';
+import { ODModel }  from '../models/ODModel';
 
 
 ODModel.getAll = (req: Request, res: Response, next: NextFunction) => {
@@ -17,6 +17,7 @@ ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
     if (err) {
       console.error(err);
     }
+    console.log(docs);
     return res.json(docs);
   });
   return true;
@@ -27,6 +28,7 @@ ODModel.getByAge = (req: Request, res: Response, next: NextFunction) => {
     if (err) {
       console.error(err);
     }
+    console.log(docs);
     return res.json(docs);
   });
   return true;

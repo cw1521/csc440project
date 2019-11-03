@@ -12,6 +12,8 @@ var ods = require('../../assets/drug-od');
   templateUrl: './accod.component.html',
   styleUrls: ['./accod.component.scss']
 })
+
+
 export class AccodComponent implements OnInit {
   accodRecords: Accod[];
   searchCategory: String[];
@@ -68,6 +70,7 @@ export class AccodComponent implements OnInit {
     this.isDisabled = true;
     this.searchResults = await this.accodService.getAccodsByUrl(`/api/ods/${this.categorySelected}/${value}`);
     this.isDisabled = false;
+    console.log(this.searchResults);
   }
 
 }

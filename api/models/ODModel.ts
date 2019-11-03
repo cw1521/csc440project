@@ -75,4 +75,7 @@ const ODSchema : Schema = new Schema({
     collection: "accod"
 });
 
-export default mongoose.model('OD', ODSchema);
+
+const ODModel = mongoose.model('ODModel', ODSchema);
+
+export { ODModel };
