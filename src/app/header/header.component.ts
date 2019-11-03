@@ -28,12 +28,13 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  login() {
-    this.oktaAuth.loginRedirect();
+  async login() {
+    await this.oktaAuth.loginRedirect();
   }
 
   async logout() {
-      await this.oktaAuth.logout('/');  
+    await this.oktaAuth.logout('/');  
+    this.isAuthenticated = false;
   }
 
 }
