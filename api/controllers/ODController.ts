@@ -13,7 +13,7 @@ ODModel.getAll = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
-  ODModel.find({location : req.params.location}, (err, docs) => {
+  ODModel.find({Location : {$regex: new RegExp(req.params.location, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }
@@ -24,7 +24,7 @@ ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByAge = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.params.age);
+  console.log(req.params.Age);
   ODModel.find({age : req.params.age}, (err, docs) => {
     if (err) {
       console.error(err);
@@ -36,7 +36,7 @@ ODModel.getByAge = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getBySex = (req: Request, res: Response, next: NextFunction) => {
-  ODModel.find({sex : req.params.sex}, (err, docs) => {
+  ODModel.find({Sex : {$regex: new RegExp(req.params.sex, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }
@@ -46,7 +46,7 @@ ODModel.getBySex = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByRace = (req: Request, res: Response, next: NextFunction) => {
-  ODModel.find({race : req.params.race}, (err, docs) => {
+  ODModel.find({Race : {$regex: new RegExp(req.params.race, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }
