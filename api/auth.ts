@@ -14,10 +14,10 @@ export async function oktaAuth(req:Request, res:Response, next:NextFunction) {
     if (!token) {
       return res.status(401).send('Not Authorized');
     }
-    const jwt = await oktaJwtVerifier.verifyAccessToken(token.split("Bearer ")[0]);
-    if (!jwt) {
-      return res.status(401).send('Not Authorized');
-    }
+    const jwt = await oktaJwtVerifier.verifyAccessToken(token.split("Bearer ")[0], 'api://default');
+    // if (!jwt) {
+    //   return res.status(401).send('Not Authorized');
+    // }
     req.user = {
       uid: jwt.claims.uid,
       email: jwt.claims.sub
