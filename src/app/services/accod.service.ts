@@ -29,6 +29,6 @@ export class AccodService {
 
 
   getAccods() {
-    return this.request('get', 'api/ods');
+    return this.request('get', '/api/ods');
   }
 }

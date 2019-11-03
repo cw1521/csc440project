@@ -14,7 +14,9 @@ import { AccodComponent } from './accod/accod.component';
 import { CoreModule } from './core/core.module'
 import { HttpClientModule} from '@angular/common/http';
 
-import { OktaAuthModule } from '@okta/okta-angular';
+import { OktaAuthModule, OktaAuthGuard } from '@okta/okta-angular';
+
+import oktaConfig from './shared/oktaConfig';
 
 
 @NgModule({
@@ -33,13 +35,9 @@ import { OktaAuthModule } from '@okta/okta-angular';
     MaterialModule,
     CoreModule,
     HttpClientModule,
-    OktaAuthModule.initAuth({
-      issuer: 'https://dev-731325.okta.com/oauth2/default',
-      redirectUri: 'https://database-editor.herokuapp.com/implicit/callback',
-      clientId: '0oa1odxb5obhuH9gl357'
-    })
+    OktaAuthModule.initAuth(oktaConfig)
   ],
-  providers: [],
+  providers: [OktaAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
