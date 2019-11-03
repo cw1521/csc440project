@@ -123,7 +123,7 @@ app.get('*.*', express.static(DIST_FOLDER, {
 }));
 
 
-app.get('/api/*', oktaAuth);
+app.use('/api/*', oktaAuth);
 
 
 // ADD Routes
