@@ -16,7 +16,7 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { OktaAuthModule, OktaAuthGuard } from '@okta/okta-angular';
 
-import oktaConfig from './shared/oktaConfig';
+import { oktaConfig } from './shared/oktaConfig';
 
 
 @NgModule({

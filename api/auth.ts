@@ -9,8 +9,8 @@ const oktaJwtVerifier = new OktaJwtVerifier({
 
 export async function oktaAuth(req:Request, res:Response, next:NextFunction) {
   try {
-    const token = req.headers['Authorization'] as String;
-    console.log(token);
+    console.log(req.headers.authorization);
+    const token = req.headers.authorization as String;
     if (!token) {
       return res.status(401).send('Not Authorized');
     }

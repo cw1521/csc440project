@@ -4,4 +4,4 @@ const oktaConfig = {
     clientId: '0oa1odxb5obhuH9gl357'
   }
 
-  export default oktaConfig;
+  export {oktaConfig};
