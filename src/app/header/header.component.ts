@@ -12,8 +12,8 @@ import { OktaAuthService } from '@okta/okta-angular';
 export class HeaderComponent implements OnInit {
   isAuthenticated: boolean;
 
-  issuer = 'https://dev-731325.okta.com/oauth2/default';
-  redirectUri = 'https://database-editor/herokuapp.com/logged_out';
+  // issuer = 'https://dev-731325.okta.com/oauth2/default';
+  // redirectUri = 'https://database-editor/herokuapp.com/logged_out';
 
 
   constructor(public oktaAuth: OktaAuthService) {
