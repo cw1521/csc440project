@@ -67,10 +67,12 @@ export class AccodComponent implements OnInit {
   // }
 
   async onSearch(value: string) {
-    this.isDisabled = true;
-    this.searchResults = await this.accodService.getAccodsByUrl(`/api/ods/${this.categorySelected}/${value}`);
-    this.isDisabled = false;
-    console.log(this.searchResults);
+    if (value.length > 0) {
+      this.isDisabled = true;
+      this.searchResults = await this.accodService.getAccodsByUrl(`/api/ods/${this.categorySelected}/${value}`);
+      this.isDisabled = false;
+      console.log(this.searchResults);
+    }
   }
 
 }
