@@ -16,6 +16,9 @@ class="container">
                 <br>
             </div>
         </div>
+        <div *ngIf="searchResults.length == 0">
+            <span>No records found.</span>
+        </div>
     </div>
 
 
