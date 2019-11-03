@@ -5,10 +5,10 @@ import { oktaAuth } from '../auth';
 export class ODRoute {
     public odRoute(app): void {
 
-      app.route('/api/ods', oktaAuth).get(ODModel.getAll);
-      app.route('/api/ods', oktaAuth).put(this.blockRoute);
-      app.route('/api/ods', oktaAuth).post(this.blockRoute);
-      app.route('/api/ods', oktaAuth).delete(this.blockRoute);      
+      app.route('/api/ods').get(ODModel.getAll);
+      app.route('/api/ods').put(this.blockRoute);
+      app.route('/api/ods').post(this.blockRoute);
+      app.route('/api/ods').delete(this.blockRoute);      
     }
 
     private blockRoute(req: Request, res: Response, next: NextFunction) {
