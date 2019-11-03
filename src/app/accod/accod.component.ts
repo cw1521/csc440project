@@ -29,10 +29,10 @@ export class AccodComponent implements OnInit {
     this.setSearchCategories();    
     this.categorySelected = this.searchCategory[0];
     this.accodRecords = null;
-    this.isDisabled = true;
+    //this.isDisabled = true;
     this.searchResults = null;
-
-    this.load();
+    this.isDisabled = false;
+    //this.load();
   }
 
   async load() {
@@ -54,14 +54,20 @@ export class AccodComponent implements OnInit {
     this.categorySelected = value;
   }
 
-  onSearch(value: String) {
-    this.searchString = value;
-    this.searchResults = this.accodRecords.filter((accod : Accod) => {
+  // onSearch(value: String) {
+  //   this.searchString = value;
+  //   this.searchResults = this.accodRecords.filter((accod : Accod) => {
 
-      if (accod[`${this.categorySelected}`])
-        return accod[`${this.categorySelected}`].toLowerCase() === value.toLowerCase();
-      else return false;
-    });
+  //     if (accod[`${this.categorySelected}`])
+  //       return accod[`${this.categorySelected}`].toLowerCase() === value.toLowerCase();
+  //     else return false;
+  //   });
+  // }
+
+  async onSearch(value: string) {
+    this.isDisabled = true;
+    this.searchResults = await this.accodService.getAccodsByUrl(`/api/ods/${this.categorySelected}/${value}`);
+    this.isDisabled = false;
   }
 
 }

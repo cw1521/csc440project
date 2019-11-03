@@ -31,4 +31,26 @@ export class AccodService {
   getAccods() {
     return this.request('get', '/api/ods');
   }
+
+  getAccodsByUrl(url: string) {
+    return this.request('get', url);
+  }
+
+  // getAccodsByAge(age: String) {
+  //   this.request('get', `/api/ods/age/${age}`)
+  // } 
+
+  // getAccodsByLocation(location: String) {
+  //   this.request('get', `/api/ods/location/${location}`)
+  // } 
+
+  // getAccodsBySex(sex: String) {
+  //   this.request('get', `/api/ods/sex/${sex}`)
+  // } 
+  
+  // getAccodsByRace(race: String) {
+  //   this.request('get', `/api/ods/race/${race}`)
+  // } 
+
+
 }
