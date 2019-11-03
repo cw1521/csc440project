@@ -1,7 +1,7 @@
 const oktaConfig = {
-    issuer: 'https://dev-731325.okta.com/oauth2/default',
+    issuer: `${process.env.OKTA_URI}/oauth2/default`,
     redirectUri: 'https://database-editor.herokuapp.com/implicit/callback',
-    clientId: '0oa1odxb5obhuH9gl357'
+    clientId: process.env.clientId
   }
 
   export {oktaConfig};

@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import ODModel from '../controllers/ODController';
-import { oktaAuth } from '../auth';
 
 export class ODRoute {
     public odRoute(app): void {
