@@ -22,6 +22,11 @@ export class ODRoute {
       app.route('/api/ods/sex/:sex').put(this.blockRoute);
       app.route('/api/ods/sex/:sex').post(this.blockRoute);
       app.route('/api/ods/sex/:sex').delete(this.blockRoute);  
+      
+      app.route('/api/ods/race/:race').get(ODModel.getByRace);
+      app.route('/api/ods/race/:race').put(this.blockRoute);
+      app.route('/api/ods/race/:race').post(this.blockRoute);
+      app.route('/api/ods/race/:race').delete(this.blockRoute);  
 
     }
 
