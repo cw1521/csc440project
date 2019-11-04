@@ -71,7 +71,7 @@ export class AccodComponent implements OnInit {
       this.isDisabled = true;
       this.searchResults = await this.accodService.getAccodsByUrl(`/api/ods/${this.categorySelected}/${value}`);
       this.isDisabled = false;
-      console.log(this.searchResults);
+      //console.log(this.searchResults);
     }
   }
 
