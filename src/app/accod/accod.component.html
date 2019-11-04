@@ -49,7 +49,8 @@ class="container">
             [disabled]="isDisabled"
             (click)="onSearch(search.value)">Search</button>
         </div>
-        <div *ngIf="hasSearched && !isDisabled">
+        <div *ngIf="hasSearched && !isDisabled"
+        class="container">
             <br>
             <span *ngIf="numberOfRecordsFound != 1">{{ numberOfRecordsFound }} records found.</span>
             <span *ngIf="numberOfRecordsFound == 1">{{ numberOfRecordsFound }} record found.</span>
