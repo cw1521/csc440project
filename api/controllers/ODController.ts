@@ -13,12 +13,11 @@ ODModel.getAll = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
-  var location = req.params.location.replace(/[^a-zA-Z0-9 !?]+/g, '');
+  const location = req.params.location.replace(/[^a-zA-Z0-9 !?]+/g, '');
   ODModel.find({Location : {$regex: new RegExp(location, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }
-    //console.log(docs);
     return res.json(docs);
   });
   return true;
@@ -26,19 +25,18 @@ ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
 
 ODModel.getByAge = (req: Request, res: Response, next: NextFunction) => {
   //console.log(req.params.age);
-  ODModel.find({Age : req.params.age}, (err, docs) => {
+  const age = req.params.sex.replace(/[^a-zA-Z0-9 !?]+/g, '');
+  ODModel.find({Age : age}, (err, docs) => {
     if (err) {
       console.error(err);
     }
-    //console.log(docs);
     return res.json(docs);
   });
   return true;
 }
 
 ODModel.getBySex = (req: Request, res: Response, next: NextFunction) => {
-  var sex = req.params.sex.replace(/[^a-zA-Z0-9 !?]+/g, '');
-  //sex = `\b${sex}\b`;
+  const sex = req.params.sex.replace(/[^a-zA-Z0-9 !?]+/g, '');
   ODModel.find({Sex : {$regex: new RegExp(`\\b${sex}\\b`, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
@@ -49,8 +47,8 @@ ODModel.getBySex = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByRace = (req: Request, res: Response, next: NextFunction) => {
-  var race = req.params.race.replace(/[^a-zA-Z0-9 !?]+/g, '');
-  ODModel.find({Race : {$regex: new RegExp(req.params.race, 'i')}}, (err, docs) => {
+  const race = req.params.race.replace(/[^a-zA-Z0-9 !?]+/g, '');
+  ODModel.find({Race : {$regex: new RegExp(race, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }
