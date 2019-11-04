@@ -32,7 +32,7 @@ export class AccodComponent implements OnInit {
     this.categorySelected = this.searchCategory[0];
     this.accodRecords = null;
     //this.isDisabled = true;
-    this.searchResults = null;
+    this.searchResults = [];
     this.isDisabled = false;
     //this.load();
   }

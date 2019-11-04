@@ -4,7 +4,7 @@ class="container">
 
     <div fxFlex="60"
     fxFlexOffset="10">
-        <div *ngIf="searchResults">
+        <div *ngIf="searchResults.length > 0">
             <br>
             <div *ngFor="let record of searchResults">
                 <span>Age: {{ record.Age }}<br></span>
