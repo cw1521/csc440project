@@ -25,7 +25,7 @@ class="container">
 
     <div fxFlex="30"
     fxFlexOffset="5"
-    class="search-bar">
+    class="search-container">
         <div>
             <mat-form-field class="search">
                 <mat-label>Search</mat-label>
@@ -50,7 +50,7 @@ class="container">
             (click)="onSearch(search.value)">Search</button>
         </div>
         <div *ngIf="hasSearched && !isDisabled"
-        class="container">
+        class="search-container">
             <br>
             <span *ngIf="numberOfRecordsFound != 1">{{ numberOfRecordsFound }} records found.</span>
             <span *ngIf="numberOfRecordsFound == 1">{{ numberOfRecordsFound }} record found.</span>
