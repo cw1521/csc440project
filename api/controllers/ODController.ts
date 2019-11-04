@@ -48,7 +48,7 @@ ODModel.getBySex = (req: Request, res: Response, next: NextFunction) => {
 
 ODModel.getByRace = (req: Request, res: Response, next: NextFunction) => {
   const race = req.params.race.replace(/[^a-zA-Z0-9 !?]+/g, '');
-  ODModel.find({Race : {$regex: new RegExp(race, 'i')}}, (err, docs) => {
+  ODModel.find({Race : {$regex: new RegExp(`\\b${race}`, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }

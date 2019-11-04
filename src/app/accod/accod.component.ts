@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Accod } from '../shared/Accod';
 import { AccodService } from '../services/accod.service';
-import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
 
-var ods = require('../../assets/drug-od');
 
 
 @Component({
@@ -56,15 +53,6 @@ export class AccodComponent implements OnInit {
     this.categorySelected = value;
   }
 
-  // onSearch(value: String) {
-  //   this.searchString = value;
-  //   this.searchResults = this.accodRecords.filter((accod : Accod) => {
-
-  //     if (accod[`${this.categorySelected}`])
-  //       return accod[`${this.categorySelected}`].toLowerCase() === value.toLowerCase();
-  //     else return false;
-  //   });
-  // }
 
   async onSearch(value: string) {
     if (value.length > 0) {
