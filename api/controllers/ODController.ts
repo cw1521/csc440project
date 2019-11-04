@@ -36,7 +36,7 @@ ODModel.getByAge = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getBySex = (req: Request, res: Response, next: NextFunction) => {
-  ODModel.find({Sex : {$regex: new RegExp(`\b${req.params.sex}\b`, 'i')}}, (err, docs) => {
+  ODModel.find({Sex : {$regex: new RegExp(`/\b${req.params.sex}/`, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
     }
