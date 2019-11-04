@@ -13,7 +13,7 @@ ODModel.getAll = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
-  const location = req.params.location.replace(/[^a-zA-Z0-9 !?]+/g, '');
+  const location = req.params.location.replace(/[^a-zA-Z0-9\s]+/g, '');
   ODModel.find({Location : {$regex: new RegExp(location, 'i')}}, (err, docs) => {
     if (err) {
       console.error(err);
