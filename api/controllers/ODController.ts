@@ -24,8 +24,7 @@ ODModel.getByLocation = (req: Request, res: Response, next: NextFunction) => {
 }
 
 ODModel.getByAge = (req: Request, res: Response, next: NextFunction) => {
-  //console.log(req.params.age);
-  const age = req.params.sex.replace(/[^a-zA-Z0-9 !?]+/g, '');
+  const age = req.params.age.replace(/[^a-zA-Z0-9 !?]+/g, '');
   ODModel.find({Age : age}, (err, docs) => {
     if (err) {
       console.error(err);
