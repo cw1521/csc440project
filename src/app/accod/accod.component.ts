@@ -18,6 +18,7 @@ export class AccodComponent implements OnInit {
   searchString: String;
   isDisabled: boolean;
   searchResults: Accod[];
+  hasSearched: boolean;
 
   
   
@@ -31,6 +32,7 @@ export class AccodComponent implements OnInit {
     //this.isDisabled = true;
     this.searchResults = [];
     this.isDisabled = false;
+    this.hasSearched = false;
     //this.load();
   }
 
@@ -57,6 +59,7 @@ export class AccodComponent implements OnInit {
   async onSearch(value: string) {
     if (value.length > 0) {
       this.isDisabled = true;
+      this.hasSearched = true;
       this.searchResults = await this.accodService.getAccodsByUrl(`/api/ods/${this.categorySelected}/${value}`);
       this.isDisabled = false;
       //console.log(this.searchResults);

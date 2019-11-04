@@ -16,7 +16,7 @@ class="container">
                 <br>
             </div>
         </div>
-        <div *ngIf="searchResults.length == 0">
+        <div *ngIf="searchResults.length == 0 && !isDisabled && hasSearched">
             <br>
             <span>No records found.</span>
         </div>
